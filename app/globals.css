@@ -21,3 +21,27 @@ body {
 .font-palanquin {
   font-family: var(--font-palanquin), sans-serif;
 }
+
+/* Better text rendering for mobile */
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Ensure proper touch targets on mobile */
+@layer utilities {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+}

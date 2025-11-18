@@ -46,36 +46,36 @@ const Featured = () => {
   const featuredItems = getFeaturedContent();
 
   return (
-    <section className="text-[#21201f] px-6">
+    <section className="text-[#21201f] px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <h2
-          className="text-3xl font-bold text-[#e34e30] mb-10 tracking-tight"
+          className="text-2xl sm:text-3xl font-bold text-[#e34e30] mb-6 sm:mb-8 md:mb-10 tracking-tight"
           style={{ fontFamily: "var(--font-snippet)" }}
         >
           Featured Writings
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 lg:gap-10">
           {featuredItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white/60 border border-zinc-300 rounded-2xl p-6 shadow-md hover:shadow-lg hover:border-[#e34e30]/40 transition flex flex-col justify-between"
+              className="bg-white/60 border border-zinc-300 rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg hover:border-[#e34e30]/40 transition flex flex-col justify-between min-h-[200px]"
             >
               <div>
                 <p
-                  className="text-sm text-[#e34e30] mb-2 uppercase tracking-wide"
+                  className="text-xs sm:text-sm text-[#e34e30] mb-2 uppercase tracking-wide"
                   style={{ fontFamily: "var(--font-snippet)" }}
                 >
                   {item.category}
                 </p>
                 <h3
-                  className="text-xl font-semibold text-[#21201f] mb-3 leading-snug"
+                  className="text-lg sm:text-xl font-semibold text-[#21201f] mb-2 sm:mb-3 leading-snug"
                   style={{ fontFamily: "var(--font-snippet)" }}
                 >
                   {item.title}
                 </h3>
                 <p
-                  className="text-sm text-zinc-600 mb-6"
+                  className="text-sm text-zinc-600 mb-4 sm:mb-6 line-clamp-3"
                   style={{ fontFamily: "var(--font-palanquin)" }}
                 >
                   {item.description}
@@ -83,7 +83,7 @@ const Featured = () => {
               </div>
               <Link
                 href={item.link}
-                className="text-[#e34e30] hover:opacity-80 font-medium text-sm transition mt-auto"
+                className="text-[#e34e30] hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
                 style={{ fontFamily: "var(--font-snippet)" }}
               >
                 Read More →

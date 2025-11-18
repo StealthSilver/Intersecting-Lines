@@ -2,17 +2,17 @@ import Featured from "@/components/sections/Featured";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col h-screen relative text-[#e34e30]">
-      <div className="flex-1 flex items-center justify-center px-6 text-center">
+    <section className="flex flex-col min-h-screen relative text-[#e34e30] pt-16 md:pt-0">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 text-center py-12 md:py-0">
         <div className="max-w-4xl">
           <h1
-            className="text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             style={{ fontFamily: "var(--font-snippet)" }}
           >
             Welcome to Silver's Desk
           </h1>
           <p
-            className="mt-4 text-lg"
+            className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl"
             style={{ fontFamily: "var(--font-snippet)" }}
           >
             A place for essays, stories & poems
@@ -20,7 +20,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-6 pb-6">
+      <div className="flex-1 overflow-y-auto px-4 sm:px-6 pb-20 md:pb-6">
         <Featured />
       </div>
     </section>

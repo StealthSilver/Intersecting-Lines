@@ -10,6 +10,16 @@ module.exports = {
         palanquin: ["var(--font-palanquin)", "sans-serif"],
         snippet: ["var(--font-snippet)", "monospace"],
       },
+      screens: {
+        'xs': '475px',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+          },
+        },
+      },
     },
   },
   plugins: [],
