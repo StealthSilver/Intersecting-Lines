@@ -43,7 +43,7 @@ export default function PoemsPage() {
                 <div>
                   <h2
                     className="text-lg sm:text-xl font-semibold text-[#21201f] dark:text-[#E0E0DA] mb-2 leading-tight transition-colors duration-300"
-                    style={{ fontFamily: "var(--font-parisienne)" }}
+                    style={{ fontFamily: "var(--font-snippet)" }}
                   >
                     {poem.title}
                   </h2>
