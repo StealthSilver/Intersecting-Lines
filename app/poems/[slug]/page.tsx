@@ -34,7 +34,7 @@ export default async function PoemPage({
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 md:pr-20 pt-20 sm:pt-24 md:pt-28">
         <h1
           className="text-3xl sm:text-4xl md:text-5xl text-[#1F6F78] dark:text-[#4A9BA3] mb-6 sm:mb-8 text-center leading-tight transition-colors duration-300"
-          style={{ fontFamily: "var(--font-parisienne)" }}
+          style={{ fontFamily: "var(--font-snippet)" }}
         >
           {data.title}
         </h1>
