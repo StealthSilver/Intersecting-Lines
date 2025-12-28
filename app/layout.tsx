@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Snippet, Parisienne, Palanquin } from "next/font/google";
+import { Antic_Didone, Inter, Parisienne } from "next/font/google";
 import siteData from "../data";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const snippet = Snippet({
+const anticDidone = Antic_Didone({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-snippet",
@@ -15,18 +16,18 @@ const parisienne = Parisienne({
   variable: "--font-parisienne",
 });
 
-const palanquin = Palanquin({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-palanquin",
 });
 
 export const metadata: Metadata = {
-  title: "Silver's Desk",
+  title: "Intersecting Lines",
   description:
     "A creative space for poems, stories, and reflections on philosophy — where thoughts meet emotions, and words search for meaning.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/icon.svg",
   },
 };
 
@@ -38,9 +39,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${snippet.variable} ${parisienne.variable} ${palanquin.variable}`}
+      className={`${anticDidone.variable} ${parisienne.variable} ${inter.variable}`}
+      suppressHydrationWarning
     >
-      <body className="bg-[#ecede8]  antialiased">{children}</body>
+      <body className="bg-[#F5F5F0] dark:bg-[#1E1E1E] transition-colors duration-300 antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

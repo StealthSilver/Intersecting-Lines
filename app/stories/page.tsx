@@ -22,13 +22,13 @@ export default function StoriesPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#ecede8] text-[#21201f] relative pb-20 md:pb-0">
+    <main className="min-h-screen bg-[#F5F5F0] dark:bg-[#1E1E1E] text-[#21201f] dark:text-[#E0E0DA] relative pb-20 md:pb-0 transition-colors duration-300">
       <Navbar />
 
       <section className="pt-20 sm:pt-24 md:pt-28 pb-8 px-4 sm:px-6 md:pr-20">
         <div className="max-w-4xl mx-auto">
           <h1
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#e34e30] mb-6 sm:mb-8 md:mb-10"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F6F78] dark:text-[#4A9BA3] mb-6 sm:mb-8 md:mb-10 transition-colors duration-300"
             style={{ fontFamily: "var(--font-snippet)" }}
           >
             Stories
@@ -38,17 +38,17 @@ export default function StoriesPage() {
             {stories.map((story) => (
               <div
                 key={story.slug}
-                className="bg-white border border-zinc-300 rounded-xl p-5 sm:p-6 shadow-md hover:shadow-lg hover:border-[#e34e30]/40 transition flex flex-col justify-between min-h-[160px]"
+                className="bg-white dark:bg-[#2A2A2A] border border-zinc-300 dark:border-[#3A3A3A] rounded-xl p-5 sm:p-6 shadow-md dark:shadow-lg hover:shadow-lg dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#1F6F78]/40 dark:hover:border-[#4A9BA3]/40 transition flex flex-col justify-between min-h-[160px]"
               >
                 <div>
                   <h2
-                    className="text-lg sm:text-xl font-semibold text-[#21201f] mb-2 leading-tight"
+                    className="text-lg sm:text-xl font-semibold text-[#21201f] dark:text-[#E0E0DA] mb-2 leading-tight transition-colors duration-300"
                     style={{ fontFamily: "var(--font-snippet)" }}
                   >
                     {story.title}
                   </h2>
                   <p
-                    className="text-sm text-zinc-600 mb-4 sm:mb-6 line-clamp-3"
+                    className="text-sm text-zinc-600 dark:text-[#B0B0A0] mb-4 sm:mb-6 line-clamp-3 transition-colors duration-300"
                     style={{ fontFamily: "var(--font-palanquin)" }}
                   >
                     {story.description}
@@ -56,7 +56,7 @@ export default function StoriesPage() {
                 </div>
                 <Link
                   href={`/stories/${story.slug}`}
-                  className="text-[#e34e30] hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
+                  className="text-[#1F6F78] dark:text-[#4A9BA3] hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
                   style={{ fontFamily: "var(--font-snippet)" }}
                 >
                   Read More →

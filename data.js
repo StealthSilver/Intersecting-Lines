@@ -1,6 +1,6 @@
 // data.js
 const siteData = {
-  name: "MyBlog",
+  name: "Intersecting Lines",
   description: "A place for Essays, Stories, Poems, and Books.",
   icon: "/favicon.svg",
 };

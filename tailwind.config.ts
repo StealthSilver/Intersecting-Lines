@@ -1,5 +1,6 @@
 // tailwind.config.js
 module.exports = {
+  darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -11,12 +12,12 @@ module.exports = {
         snippet: ["var(--font-snippet)", "monospace"],
       },
       screens: {
-        'xs': '475px',
+        xs: "475px",
       },
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: 'none',
+            maxWidth: "none",
           },
         },
       },
