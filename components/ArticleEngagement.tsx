@@ -14,11 +14,10 @@ import {
   Moon,
   Share2,
   Smartphone,
-  Sparkles,
   Sun,
   Wind,
 } from "lucide-react";
-import { IconBrandInstagram, IconBrandX } from "@tabler/icons-react";
+import { IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 
 const SNIPPET = { fontFamily: "var(--font-snippet)" } as const;
 const STORAGE_PREFIX = "intersecting_your_take:";
@@ -28,7 +27,6 @@ type TakeId =
   | "insight"
   | "ache"
   | "stillness"
-  | "haunting"
   | "hope"
   | "whisper"
   | "unsettling"
@@ -45,7 +43,6 @@ const TAKES: {
   { id: "insight", label: "Insight", hint: "intellectual clarity", Icon: Lightbulb },
   { id: "ache", label: "Ache", hint: "emotional depth", Icon: HeartPulse },
   { id: "stillness", label: "Stillness", hint: "calm, reflective", Icon: Moon },
-  { id: "haunting", label: "Haunting", hint: "lingering impact", Icon: Sparkles },
   { id: "hope", label: "Hope", hint: "uplifting", Icon: Sun },
   { id: "whisper", label: "Whisper", hint: "subtle, quiet tone", Icon: Wind },
   {
@@ -145,18 +142,15 @@ export default function ArticleEngagement({
     setShareOpen(false);
   }, [shareUrl, title]);
 
-  const shareOnInstagram = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-    } catch {
-      showToast("Could not copy the link.");
-      return;
-    }
-    showToast(
-      "Link copied. Open Instagram and paste it into a story link sticker, your bio, or a caption.",
+  const shareOnLinkedIn = useCallback(() => {
+    const u = encodeURIComponent(shareUrl);
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+      "_blank",
+      "noopener,noreferrer",
     );
     setShareOpen(false);
-  }, [shareUrl, showToast]);
+  }, [shareUrl]);
 
   const shareOtherApps = useCallback(async () => {
     if (!navigator.share) {
@@ -276,16 +270,16 @@ export default function ArticleEngagement({
                 type="button"
                 role="menuitem"
                 className={itemClass}
-                onClick={shareOnInstagram}
+                onClick={shareOnLinkedIn}
               >
-                <IconBrandInstagram
+                <IconBrandLinkedin
                   className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
                   aria-hidden
                 />
                 <span>
-                  <span className="block font-semibold">Share on Instagram</span>
+                  <span className="block font-semibold">Share on LinkedIn</span>
                   <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                    Copies link — paste in story or caption
+                    Open LinkedIn with this page URL
                   </span>
                 </span>
               </button>
