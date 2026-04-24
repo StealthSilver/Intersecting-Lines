@@ -1,6 +1,6 @@
 ---
 title: "The Story of Her"
-author: "Rya"
+author: "Not Alan Turing"
 date: "2025-09-21"
 description: "Wry verses on love, small habits, and moving on."
 summary: "Humor and ache in the story of her—then life without her."
