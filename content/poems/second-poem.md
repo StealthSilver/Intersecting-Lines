@@ -1,33 +1,34 @@
 ---
-title: "Memories of Olly"
-author: "Rya"
-date: "2025-09-21"
-description: "A short, heartfelt poem reflecting on the memory of a loved one."
-summary: "A lyrical recollection of happy times with Olly, tinged with loss."
-tags: ["poetry", "love", "memory", "heartbreak"]
+title: "Unbreakable Stone"
+author: "Silver"
+date: "2025-11-23"
+description: "A poem about the statue you can give away and the rock you will die defending—what cannot be stolen, even as dust."
+summary: "The chiseled self may belong to another; the inner stone stays yours past death and return."
+tags: ["poetry", "identity", "attachment"]
 ---
 
-# Memories of Olly
 
-The sun was set,  
-The sand was wet.  
+I was attached to the statue I chiseled myself,  
+Yet I was in love with the rock I kept upon my shelf.
 
-We walked along,  
-The waves were long.  
+You may take the statue—I will let it belong to you,  
+But if you steal my rock, it will remain mine, whatever you do.
 
-The jokes were silly,  
-But we were happy.  
+Even if you cast it far away,  
+It is still mine in every way.
 
-Both our moods were jolly,  
-Her name was Olly.  
+You cannot take my rock—  
+I would die protecting it.  
+And even then, it would not be yours;  
+It would still resist.
 
-I still recall her smile,  
-Her lovely dressing style.  
+After my death, you may pulverize it,  
+Reduce it to dust and bone—  
+But you cannot break the feeling  
+That has made it my own.
 
-My life feels less fun,  
-Since her story is done.  
-
-Now I walk alone,  
-With a broken heart,  
-And a broken phone.
-
+You may think we cannot melt,  
+That there is no such thing as rebirth—  
+But you are wrong,  
+For it will return to me, grain by grain,  
+Mixed back into the earth.

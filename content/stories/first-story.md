@@ -2,12 +2,11 @@
 title: "Midnight on the Streets of Tokyo"
 author: "Silver"
 date: "2025-09-14"
-description: "A short story capturing the life and atmosphere of Tokyo at night."
-summary: "A narrative exploring the vibrant and quiet moments on Tokyo's streets after dark."
-tags: ["fiction", "Tokyo", "urban life", "story"]
+description: "One night in Tokyo—neon, ramen, and the city’s quiet pulse."
+summary: "Akira walks Shibuya after rain; noise and stillness braid into one mood."
+tags: ["fiction", "Tokyo", "night"]
 ---
 
-# Midnight on the Streets of Tokyo
 
 The neon lights flickered across the slick pavement, reflecting in puddles left by an afternoon rain. On the streets of Tokyo, the city never truly sleeps. Crowds ebbed and flowed like tides, commuters hurried home while tourists lingered, cameras raised to capture the glow of Shibuya Crossing.
 

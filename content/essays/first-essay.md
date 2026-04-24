@@ -2,12 +2,11 @@
 title: "The Three-Body Problem"
 author: "Silver"
 date: "2025-09-14"
-description: "An essay on the three-body problem in physics and mathematics."
-summary: "An exploration of the three-body problem and its significance"
+description: "Why three gravitating bodies defy a tidy formula—and what that taught physics."
+summary: "Chaos, special cases, and how one hard problem shaped centuries of math and spaceflight."
 tags: ["physics", "mathematics", "essay"]
 ---
 
-# The Three-Body Problem: A Classical Puzzle in Physics and Mathematics
 
 The three-body problem is one of the most famous challenges in classical mechanics, concerning the motion of three celestial bodies under their mutual gravitational attraction. At first glance, it appears to be a natural extension of the simpler two-body problem, which was elegantly solved by Johannes Kepler and later by Isaac Newton. The two-body case produces predictable elliptical, parabolic, or hyperbolic orbits. However, when a third body is introduced, the situation becomes far more complex, and no general closed-form solution exists.
 

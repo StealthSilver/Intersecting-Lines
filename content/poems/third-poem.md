@@ -2,12 +2,11 @@
 title: "The Story of Her"
 author: "Rya"
 date: "2025-09-21"
-description: "A humorous yet bittersweet poem about love, quirks, and life moving on."
-summary: "A lighthearted reflection on love, odd habits, and the passage of time."
-tags: ["poetry", "love", "humor", "memory"]
+description: "Wry verses on love, small habits, and moving on."
+summary: "Humor and ache in the story of her—then life without her."
+tags: ["poetry", "love", "memory"]
 ---
 
-# The Story of Her
 
 Every time I saw her,  
 I saw her fine.  

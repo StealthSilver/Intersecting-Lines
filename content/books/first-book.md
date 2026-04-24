@@ -2,9 +2,9 @@
 title: "White Nights"
 author: "Silver"
 date: "2025-09-14"
-description: "A summary of Fyodor Dostoevsky's short story 'White Nights'."
-summary: "An exploration of Fyodor Dostoevsky's 'White Nights', a poignant tale of love and solitude."
-tags: ["Dostoevsky", "White Nights", "Russian literature", "short story"]
+description: "Four nights in Petersburg: a dreamer, Nastenka, and love that cannot stay."
+summary: "Dostoevsky’s tale of brief connection and the solitude that follows."
+tags: ["Dostoevsky", "White Nights", "literature"]
 ---
 
 # Summary of _White Nights_ by Fyodor Dostoevsky

@@ -1,30 +1,38 @@
 ---
-title: "Ode to the Hibiscus Tree"
-author: "Rajat Saraswat"
+title: "A Gift Beyond Gifts"
+author: "Silver"
 date: "2025-09-14"
-description: "A short poem celebrating the beauty of hibiscus trees."
-summary: "A lyrical reflection on the vibrant and delicate hibiscus tree."
-tags: ["poetry", "nature", "hibiscus"]
+description: "A love poem: no gift fits someone who is already tree, sea, star, and mine."
+summary: "The speaker admits no present is enough—the beloved already is everything worth giving."
+tags: ["poetry", "love", "metaphor"]
 ---
 
-# Ode to the Hibiscus Tree
 
-Beneath the sun’s warm, golden glow,  
-The hibiscus sways, gentle and slow.  
-Its petals flare in crimson bright,  
-A fleeting blaze of morning light.
+I do not hesitate to admit  
+I was unable to find you a gift.  
+Truly, I went to search for it,  
+I was willing to get you the perfect fit.
 
-The breeze whispers through its leafy green,  
-A softer world, a calmer scene.  
-Each blossom opens, bold yet shy,  
-A fleeting smile beneath the sky.
+I saw many things, even liked some too,  
+But every time I realized  
+They were incomplete for you…
 
-In gardens still or wild and free,  
-The hibiscus stands for all to see.  
-A promise of summer, warm and sweet,  
-A tender heart in bloom complete.
+I cannot bring you fruits,  
+Because you are the tree.  
+I cannot bring you water,  
+Because you are the sea.
 
-Though morning fades and petals fall,  
-Its fleeting beauty enchants us all.  
-A symbol of grace, both fierce and mild,  
-Nature’s art, delicate and wild.
+I cannot bring you wine,  
+Because you are the bar.  
+I cannot bring you light,  
+Because you are the star.
+
+I cannot paint you,  
+Because you own my colors.  
+You are the garden,  
+So I cannot bring you flowers.
+
+No gold for you,  
+For you are the mine.  
+If you are sad,  
+Your sorrow is mine.

@@ -2,15 +2,9 @@
 title: "Men Without Women"
 author: "Silver"
 date: "2025-09-14"
-description: "A summary of Haruki Murakami's short story collection 'Men Without Women'."
-summary: "A collection of seven stories delving into the lives of men facing loneliness and loss."
-tags:
-  [
-    "Haruki Murakami",
-    "Men Without Women",
-    "short stories",
-    "Japanese literature",
-  ]
+description: "Seven Murakami stories of men alone—with longing, oddity, and ache."
+summary: "Isolation and love after loss, in one spare collection."
+tags: ["Murakami", "Men Without Women", "fiction"]
 ---
 
 # Summary of _Men Without Women_ by Haruki Murakami
