@@ -2,8 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import Navbar from "@/components/sections/Navbar";
-import Sidebar from "@/components/sections/Sidebar";
 
 export default function EssaysPage() {
   const essaysDir = path.join(process.cwd(), "content/essays");
@@ -22,9 +20,7 @@ export default function EssaysPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#F5F5F0] dark:bg-[#1E1E1E] text-[#21201f] dark:text-[#E0E0DA] relative pb-20 md:pb-0 transition-colors duration-300">
-      <Navbar />
-
+    <main className="min-h-screen text-[#21201f] dark:text-[#E0E0DA] relative pb-20 md:pb-0 transition-colors duration-300">
       <section className="pt-20 sm:pt-24 md:pt-28 pb-8 px-4 sm:px-6 md:pr-20">
         <div className="max-w-4xl mx-auto">
           <h1
@@ -66,8 +62,6 @@ export default function EssaysPage() {
           </div>
         </div>
       </section>
-
-      <Sidebar />
     </main>
   );
 }

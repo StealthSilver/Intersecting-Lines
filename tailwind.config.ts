@@ -9,6 +9,7 @@ module.exports = {
         heading: ["var(--font-poppins)", "sans-serif"],
         parisienne: ["var(--font-parisienne)", "cursive"],
         palanquin: ["var(--font-palanquin)", "sans-serif"],
+        reading: ["var(--font-reading)", "Georgia", "serif"],
         snippet: ["var(--font-snippet)", "monospace"],
       },
       screens: {

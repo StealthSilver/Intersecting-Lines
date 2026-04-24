@@ -2,7 +2,7 @@ import Featured from "@/components/sections/Featured";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col min-h-screen relative text-[#1F6F78] dark:text-[#4A9BA3] pt-16 md:pt-0 bg-[#F5F5F0] dark:bg-[#1E1E1E] transition-colors duration-300">
+    <section className="flex flex-col min-h-screen relative text-[#1F6F78] dark:text-[#4A9BA3] pt-16 md:pt-0 bg-transparent transition-colors duration-300">
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 text-center py-12 md:py-0">
         <div className="max-w-4xl">
           <h1

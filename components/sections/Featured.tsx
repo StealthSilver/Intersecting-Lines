@@ -52,14 +52,15 @@ const Featured = () => {
           className="text-2xl sm:text-3xl font-bold text-[#1F6F78] dark:text-[#4A9BA3] mb-6 sm:mb-8 md:mb-10 tracking-tight transition-colors duration-300"
           style={{ fontFamily: "var(--font-snippet)" }}
         >
-          Featured Writings
+          Start here
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 lg:gap-10">
           {featuredItems.map((item, idx) => (
-            <div
+            <Link
               key={idx}
-              className="bg-white/60 dark:bg-[#2A2A2A]/80 border border-zinc-300 dark:border-[#3A3A3A] rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-md dark:shadow-lg hover:shadow-lg dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#1F6F78]/40 dark:hover:border-[#4A9BA3]/40 transition flex flex-col justify-between min-h-[200px]"
+              href={item.link}
+              className="group bg-white/60 dark:bg-[#2A2A2A]/80 border border-zinc-300 dark:border-[#3A3A3A] rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-md dark:shadow-lg hover:shadow-lg dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#1F6F78]/40 dark:hover:border-[#4A9BA3]/40 transition flex flex-col justify-between min-h-[200px] text-inherit no-underline outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1F6F78] dark:focus-visible:outline-[#4A9BA3]"
             >
               <div>
                 <p
@@ -81,14 +82,13 @@ const Featured = () => {
                   {item.description}
                 </p>
               </div>
-              <Link
-                href={item.link}
-                className="text-[#1F6F78] dark:text-[#4A9BA3] hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
+              <span
+                className="text-[#1F6F78] dark:text-[#4A9BA3] group-hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
                 style={{ fontFamily: "var(--font-snippet)" }}
               >
-                Read More →
-              </Link>
-            </div>
+                Read more →
+              </span>
+            </Link>
           ))}
         </div>
       </div>

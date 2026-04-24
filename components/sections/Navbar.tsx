@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full border-b border-[#21201f] dark:border-[#3A3A3A] bg-[#F5F5F0]/95 dark:bg-[#1E1E1E]/95 backdrop-blur-sm font-[var(--font-snippet)] z-50 transition-colors duration-300">
+    <nav className="fixed top-0 left-0 w-full border-b border-[#21201f] dark:border-[#3A3A3A] manuscript-panel backdrop-blur-sm font-[var(--font-snippet)] z-50 transition-colors duration-300">
       <div className="max-w-5xl mx-auto flex justify-between items-center py-3 sm:py-4 px-4 sm:px-6">
         <Link href="/" className="transition hover:opacity-80">
           <Image
@@ -83,7 +83,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-[#21201f] dark:border-[#3A3A3A] bg-[#F5F5F0] dark:bg-[#1E1E1E] transition-colors duration-300">
+        <div className="md:hidden border-t border-[#21201f] dark:border-[#3A3A3A] manuscript-panel transition-colors duration-300">
           <div
             className="flex flex-col py-4 px-4 gap-4 text-lg font-bold"
             style={{ fontFamily: "var(--font-snippet)" }}
