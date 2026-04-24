@@ -35,6 +35,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local visit counts (not committed)
+/data/visits.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

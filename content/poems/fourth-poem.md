@@ -7,15 +7,14 @@ summary: "Half-sight, half-jokes: Monday, mischief, and waking in water."
 tags: ["poetry", "surreal", "family"]
 ---
 
-
 A Lazy Man with a Lazy face ,
-Wandered lonely in the woods 
+Wandered lonely in the woods
 With only one eye open everytime ,
 As he thought the other was of no good.
 
 One day during his evening walk ,
-He saw a fox which seemed to talk 
-But when got closer , 
+He saw a fox which seemed to talk
+But when got closer ,
 Hello realised it was his mother .
 
 Today was Monday and his school,

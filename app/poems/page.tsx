@@ -1,23 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
+import { getCollectionSortedByDate } from "@/lib/markdown-collection";
 
 export default function PoemsPage() {
-  const poemsDir = path.join(process.cwd(), "content/poems");
-  const files = fs.readdirSync(poemsDir);
-
-  const poems = files.map((filename) => {
-    const filePath = path.join(poemsDir, filename);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const { data } = matter(fileContent);
-
-    return {
-      slug: filename.replace(/\.md$/, ""),
-      title: data.title || "Untitled",
-      description: data.description || data.excerpt || "",
-    };
-  });
+  const poems = getCollectionSortedByDate("poems");
 
   return (
     <main className="min-h-screen text-[#21201f] dark:text-[#E0E0DA] relative pb-20 md:pb-0 transition-colors duration-300">

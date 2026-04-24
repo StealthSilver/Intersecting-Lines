@@ -22,6 +22,7 @@
     "react-icons": "^5.5.0",
     "react-notion-x": "^7.4.3",
     "remark": "^15.0.1",
+    "remark-breaks": "^4.0.0",
     "remark-html": "^16.0.1",
     "simplex-noise": "^4.0.3"
   },

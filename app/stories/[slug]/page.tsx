@@ -6,6 +6,7 @@ import html from "remark-html";
 import { notFound } from "next/navigation";
 import ArticleEngagement from "@/components/ArticleEngagement";
 import AuthorByline from "@/components/AuthorByline";
+import RecordVisit from "@/components/RecordVisit";
 import { getAbsoluteSiteUrl } from "@/lib/site-url";
 
 export default async function StoryPage({
@@ -32,6 +33,7 @@ export default async function StoryPage({
 
   return (
     <main className="relative min-h-screen text-[#21201f] dark:text-[#E0E0DA] pb-20 md:pb-0 transition-colors duration-300">
+      <RecordVisit section="stories" slug={slug} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 md:pr-20 pt-20 sm:pt-24 md:pt-28">
         <h1
           className="text-3xl sm:text-4xl md:text-5xl font-[var(--font-parisienne)] text-[#1F6F78] dark:text-[#4A9BA3] mb-6 sm:mb-8 text-center leading-tight transition-colors duration-300"
