@@ -81,44 +81,54 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-[#21201f] dark:border-[#3A3A3A] manuscript-panel transition-colors duration-300">
+      {/* Mobile nav: grid row transition for smooth expand/collapse */}
+      <div
+        className={`md:hidden grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none ${
+          isMenuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden" inert={!isMenuOpen ? true : undefined}>
           <div
-            className="flex flex-col py-4 px-4 gap-4 text-lg font-bold"
-            style={{ fontFamily: "var(--font-snippet)" }}
+            className={`border-t border-[#21201f] dark:border-[#3A3A3A] manuscript-panel transition-opacity duration-300 ease-in-out motion-reduce:transition-none ${
+              isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
           >
-            <Link
-              href="/essays"
-              className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2"
-              onClick={() => setIsMenuOpen(false)}
+            <div
+              className="flex flex-col py-3 px-4 gap-1 text-base font-bold"
+              style={{ fontFamily: "var(--font-snippet)" }}
             >
-              Essays
-            </Link>
-            <Link
-              href="/stories"
-              className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Stories
-            </Link>
-            <Link
-              href="/poems"
-              className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Poems
-            </Link>
-            <Link
-              href="/books"
-              className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Books
-            </Link>
+              <Link
+                href="/essays"
+                className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2 rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Essays
+              </Link>
+              <Link
+                href="/stories"
+                className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2 rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Stories
+              </Link>
+              <Link
+                href="/poems"
+                className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2 rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Poems
+              </Link>
+              <Link
+                href="/books"
+                className="hover:text-[#1F6F78] dark:hover:text-[#4A9BA3] transition py-2 px-2 rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Books
+              </Link>
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

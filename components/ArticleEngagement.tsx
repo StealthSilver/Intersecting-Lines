@@ -72,11 +72,17 @@ type ArticleEngagementProps = {
   title: string;
 };
 
-const panelClass =
-  "absolute left-1/2 top-full z-[60] mt-3 w-[min(100vw-2rem,20rem)] -translate-x-1/2 rounded-xl border border-zinc-300/90 bg-white/95 p-2 shadow-lg backdrop-blur-sm dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/95 sm:w-[22rem]";
+const sharePanelClass =
+  "absolute left-1/2 top-full z-[60] mt-2 w-[min(calc(100vw-1.5rem),20rem)] max-w-full -translate-x-1/2 rounded-xl border border-zinc-300/90 bg-white/95 p-2 shadow-lg backdrop-blur-sm dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/95 sm:mt-3 sm:w-[22rem]";
 
-const itemClass =
+const takePanelClass =
+  "absolute left-1/2 top-full z-[60] mt-2 w-[min(calc(100vw-1.5rem),18rem)] max-w-full -translate-x-1/2 rounded-lg border border-zinc-300/90 bg-white/95 p-1.5 shadow-lg backdrop-blur-sm dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/95 sm:mt-3";
+
+const shareItemClass =
   "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-[#21201f] transition hover:bg-[#1F6F78]/10 dark:text-[#E0E0DA] dark:hover:bg-[#4A9BA3]/15";
+
+const takeItemClass =
+  "flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs font-medium text-[#21201f] transition hover:bg-[#1F6F78]/10 dark:text-[#E0E0DA] dark:hover:bg-[#4A9BA3]/15";
 
 export default function ArticleEngagement({
   shareUrl: shareUrlProp,
@@ -84,8 +90,7 @@ export default function ArticleEngagement({
 }: ArticleEngagementProps) {
   const shareMenuId = useId();
   const takeMenuId = useId();
-  const shareWrapRef = useRef<HTMLDivElement>(null);
-  const takeWrapRef = useRef<HTMLDivElement>(null);
+  const engagementRootRef = useRef<HTMLDivElement>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [takeOpen, setTakeOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -181,7 +186,7 @@ export default function ArticleEngagement({
       }
       setTakeOpen(false);
       const label = TAKES.find((t) => t.id === id)?.label;
-      showToast(label ? `Your take: ${label} — saved on this device.` : "Saved on this device.");
+      showToast(label ? `${label} saved.` : "Saved.");
     },
     [shareUrl, showToast],
   );
@@ -196,12 +201,10 @@ export default function ArticleEngagement({
     };
     const onPointer = (e: MouseEvent | TouchEvent) => {
       const t = e.target as Node;
-      if (shareOpen && shareWrapRef.current && !shareWrapRef.current.contains(t)) {
-        setShareOpen(false);
-      }
-      if (takeOpen && takeWrapRef.current && !takeWrapRef.current.contains(t)) {
-        setTakeOpen(false);
-      }
+      const root = engagementRootRef.current;
+      if (!root || root.contains(t)) return;
+      if (shareOpen) setShareOpen(false);
+      if (takeOpen) setTakeOpen(false);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onPointer);
@@ -214,161 +217,161 @@ export default function ArticleEngagement({
   }, [shareOpen, takeOpen]);
 
   return (
-    <div className="relative mx-auto mb-8 max-w-xl sm:mb-10">
+    <div
+      ref={engagementRootRef}
+      className="relative mx-auto mb-8 max-w-xl px-2 sm:mb-10 sm:px-0"
+    >
       <div
-        className="flex flex-wrap items-center justify-center gap-3"
+        className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
         style={SNIPPET}
       >
-        <div className="relative" ref={shareWrapRef}>
-          <button
-            type="button"
-            aria-expanded={shareOpen}
-            aria-haspopup="true"
-            aria-controls={shareMenuId}
-            onClick={() => {
-              setTakeOpen(false);
-              setShareOpen((o) => !o);
-            }}
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-2 text-sm font-semibold text-[#1F6F78] shadow-sm transition hover:border-[#1F6F78]/50 hover:bg-white dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/80 dark:text-[#4A9BA3] dark:hover:border-[#4A9BA3]/50 dark:hover:bg-[#333]"
-          >
-            <Share2 className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
-            Share
-          </button>
-          {shareOpen && (
-            <div
-              id={shareMenuId}
-              role="menu"
-              className={panelClass}
-              style={SNIPPET}
-            >
-              <button type="button" role="menuitem" className={itemClass} onClick={copyLink}>
-                {copied ? (
-                  <Check className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
-                ) : (
-                  <Copy className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
-                )}
-                <span>
-                  <span className="block font-semibold">Copy link</span>
-                  <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                    Copy this page&apos;s URL
-                  </span>
-                </span>
-              </button>
-              <button type="button" role="menuitem" className={itemClass} onClick={shareOnX}>
-                <IconBrandX
-                  className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
-                  aria-hidden
-                />
-                <span>
-                  <span className="block font-semibold">Share on X</span>
-                  <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                    Open a post draft with link
-                  </span>
-                </span>
-              </button>
-              <button
-                type="button"
-                role="menuitem"
-                className={itemClass}
-                onClick={shareOnLinkedIn}
-              >
-                <IconBrandLinkedin
-                  className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
-                  aria-hidden
-                />
-                <span>
-                  <span className="block font-semibold">Share on LinkedIn</span>
-                  <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                    Open LinkedIn with this page URL
-                  </span>
-                </span>
-              </button>
-              <button
-                type="button"
-                role="menuitem"
-                className={`${itemClass} ${!shareSupported ? "opacity-60" : ""}`}
-                onClick={shareOtherApps}
-                disabled={!shareSupported}
-              >
-                <Smartphone className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
-                <span>
-                  <span className="block font-semibold">Other apps</span>
-                  <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                    {shareSupported
-                      ? "System share sheet (Messages, Mail, …)"
-                      : "Not available in this browser"}
-                  </span>
-                </span>
-              </button>
-            </div>
-          )}
-        </div>
+        <button
+          type="button"
+          aria-expanded={shareOpen}
+          aria-haspopup="true"
+          aria-controls={shareMenuId}
+          onClick={() => {
+            setTakeOpen(false);
+            setShareOpen((o) => !o);
+          }}
+          className="inline-flex items-center gap-1.5 rounded-full border border-zinc-300 bg-white/70 px-3 py-1.5 text-xs font-semibold text-[#1F6F78] shadow-sm transition hover:border-[#1F6F78]/50 hover:bg-white dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/80 dark:text-[#4A9BA3] dark:hover:border-[#4A9BA3]/50 dark:hover:bg-[#333] sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <Share2 className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" strokeWidth={2} aria-hidden />
+          Share
+        </button>
 
-        <div className="relative" ref={takeWrapRef}>
+        <button
+          type="button"
+          aria-expanded={takeOpen}
+          aria-haspopup="true"
+          aria-controls={takeMenuId}
+          onClick={() => {
+            setShareOpen(false);
+            setTakeOpen((o) => !o);
+          }}
+          className="inline-flex max-w-[100vw] items-center gap-1.5 rounded-full border border-zinc-300 bg-white/70 px-3 py-1.5 text-xs font-semibold text-[#1F6F78] shadow-sm transition hover:border-[#1F6F78]/50 hover:bg-white dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/80 dark:text-[#4A9BA3] dark:hover:border-[#4A9BA3]/50 dark:hover:bg-[#333] sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <MessageCircle
+            className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+            strokeWidth={2}
+            aria-hidden
+          />
+          <span className="shrink-0">Your take</span>
+          {selectedTake && (
+            <span className="max-w-[4.5rem] truncate text-[0.65rem] font-medium opacity-90 sm:max-w-[6rem] sm:text-xs">
+              · {TAKES.find((t) => t.id === selectedTake)?.label}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {shareOpen && (
+        <div
+          id={shareMenuId}
+          role="menu"
+          className={sharePanelClass}
+          style={SNIPPET}
+        >
+          <button type="button" role="menuitem" className={shareItemClass} onClick={copyLink}>
+            {copied ? (
+              <Check className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
+            ) : (
+              <Copy className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
+            )}
+            <span>
+              <span className="block font-semibold">Copy link</span>
+              <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
+                Copy this page&apos;s URL
+              </span>
+            </span>
+          </button>
+          <button type="button" role="menuitem" className={shareItemClass} onClick={shareOnX}>
+            <IconBrandX
+              className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
+              aria-hidden
+            />
+            <span>
+              <span className="block font-semibold">Share on X</span>
+              <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
+                Open a post draft with link
+              </span>
+            </span>
+          </button>
           <button
             type="button"
-            aria-expanded={takeOpen}
-            aria-haspopup="true"
-            aria-controls={takeMenuId}
-            onClick={() => {
-              setShareOpen(false);
-              setTakeOpen((o) => !o);
-            }}
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-2 text-sm font-semibold text-[#1F6F78] shadow-sm transition hover:border-[#1F6F78]/50 hover:bg-white dark:border-[#3A3A3A] dark:bg-[#2A2A2A]/80 dark:text-[#4A9BA3] dark:hover:border-[#4A9BA3]/50 dark:hover:bg-[#333]"
+            role="menuitem"
+            className={shareItemClass}
+            onClick={shareOnLinkedIn}
           >
-            <MessageCircle className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
-            Your take
-            {selectedTake && (
-              <span className="ml-0.5 max-w-[7rem] truncate text-xs font-medium opacity-90">
-                · {TAKES.find((t) => t.id === selectedTake)?.label}
+            <IconBrandLinkedin
+              className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
+              aria-hidden
+            />
+            <span>
+              <span className="block font-semibold">Share on LinkedIn</span>
+              <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
+                Open LinkedIn with this page URL
               </span>
-            )}
+            </span>
           </button>
-          {takeOpen && (
-            <div
-              id={takeMenuId}
-              role="listbox"
-              aria-label="Your take"
-              className={`${panelClass} max-h-[min(70vh,28rem)] overflow-y-auto p-2 sm:w-[24rem]`}
-              style={SNIPPET}
-            >
-              <p className="px-2 pb-2 text-xs text-zinc-500 dark:text-[#9A9A8E]">
-                How did this piece land with you? One choice is saved on this device.
-              </p>
-              <ul className="space-y-0.5">
-                {TAKES.map(({ id, label, hint, Icon }) => (
-                  <li key={id}>
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={selectedTake === id}
-                      onClick={() => selectTake(id)}
-                      className={`${itemClass} ${selectedTake === id ? "bg-[#1F6F78]/12 dark:bg-[#4A9BA3]/20" : ""}`}
-                    >
-                      <Icon
-                        className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
-                        strokeWidth={2}
-                      />
-                      <span className="min-w-0 flex-1">
-                        <span className="block font-semibold">{label}</span>
-                        <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
-                          {hint}
-                        </span>
-                      </span>
-                      {selectedTake === id && (
-                        <Check
-                          className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]"
-                          aria-hidden
-                        />
-                      )}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <button
+            type="button"
+            role="menuitem"
+            className={`${shareItemClass} ${!shareSupported ? "opacity-60" : ""}`}
+            onClick={shareOtherApps}
+            disabled={!shareSupported}
+          >
+            <Smartphone className="h-4 w-4 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3]" />
+            <span>
+              <span className="block font-semibold">Other apps</span>
+              <span className="text-xs font-normal text-zinc-500 dark:text-[#9A9A8E]">
+                {shareSupported
+                  ? "System share sheet (Messages, Mail, …)"
+                  : "Not available in this browser"}
+              </span>
+            </span>
+          </button>
         </div>
-      </div>
+      )}
+
+      {takeOpen && (
+        <div
+          id={takeMenuId}
+          role="listbox"
+          aria-label="Your take"
+          className={`${takePanelClass} max-h-[min(55vh,16rem)] overflow-y-auto overscroll-contain`}
+          style={SNIPPET}
+        >
+          <p className="px-1.5 pb-1 text-[0.65rem] leading-snug text-zinc-500 dark:text-[#9A9A8E]">
+            One choice, saved on this device only.
+          </p>
+          <ul className="grid grid-cols-2 gap-0.5">
+            {TAKES.map(({ id, label, Icon }) => (
+              <li key={id}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={selectedTake === id}
+                  onClick={() => selectTake(id)}
+                  className={`${takeItemClass} ${selectedTake === id ? "bg-[#1F6F78]/12 dark:bg-[#4A9BA3]/20" : ""}`}
+                >
+                  <Icon
+                    className="h-3.5 w-3.5 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3] sm:h-4 sm:w-4"
+                    strokeWidth={2}
+                  />
+                  <span className="min-w-0 truncate">{label}</span>
+                  {selectedTake === id && (
+                    <Check
+                      className="ml-auto h-3.5 w-3.5 shrink-0 text-[#1F6F78] dark:text-[#4A9BA3] sm:h-4 sm:w-4"
+                      aria-hidden
+                    />
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {toast && (
         <p
