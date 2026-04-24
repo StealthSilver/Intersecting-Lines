@@ -1,5 +1,6 @@
 ---
 title: "The Story of Her"
+author: "Rya"
 date: "2025-09-21"
 description: "A humorous yet bittersweet poem about love, quirks, and life moving on."
 summary: "A lighthearted reflection on love, odd habits, and the passage of time."

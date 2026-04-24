@@ -1,5 +1,6 @@
 ---
 title: "White Nights"
+author: "Silver"
 date: "2025-09-14"
 description: "A summary of Fyodor Dostoevsky's short story 'White Nights'."
 summary: "An exploration of Fyodor Dostoevsky's 'White Nights', a poignant tale of love and solitude."

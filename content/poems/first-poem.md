@@ -1,5 +1,6 @@
 ---
 title: "Ode to the Hibiscus Tree"
+author: "Rajat Saraswat"
 date: "2025-09-14"
 description: "A short poem celebrating the beauty of hibiscus trees."
 summary: "A lyrical reflection on the vibrant and delicate hibiscus tree."

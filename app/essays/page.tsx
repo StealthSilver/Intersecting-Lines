@@ -32,9 +32,10 @@ export default function EssaysPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
             {essays.map((essay) => (
-              <div
+              <Link
                 key={essay.slug}
-                className="bg-white dark:bg-[#2A2A2A] border border-zinc-300 dark:border-[#3A3A3A] rounded-xl p-5 sm:p-6 shadow-md dark:shadow-lg hover:shadow-lg dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#1F6F78]/40 dark:hover:border-[#4A9BA3]/40 transition flex flex-col justify-between min-h-[160px]"
+                href={`/essays/${essay.slug}`}
+                className="group bg-white dark:bg-[#2A2A2A] border border-zinc-300 dark:border-[#3A3A3A] rounded-xl p-5 sm:p-6 shadow-md dark:shadow-lg hover:shadow-lg dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#1F6F78]/40 dark:hover:border-[#4A9BA3]/40 transition flex flex-col justify-between min-h-[160px] text-inherit no-underline outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1F6F78] dark:focus-visible:outline-[#4A9BA3]"
               >
                 <div>
                   <h2
@@ -50,14 +51,13 @@ export default function EssaysPage() {
                     {essay.description}
                   </p>
                 </div>
-                <Link
-                  href={`/essays/${essay.slug}`}
-                  className="text-[#1F6F78] dark:text-[#4A9BA3] hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
+                <span
+                  className="text-[#1F6F78] dark:text-[#4A9BA3] group-hover:opacity-80 font-medium text-sm transition mt-auto inline-block"
                   style={{ fontFamily: "var(--font-snippet)" }}
                 >
-                  Read More →
-                </Link>
-              </div>
+                  Read more →
+                </span>
+              </Link>
             ))}
           </div>
         </div>

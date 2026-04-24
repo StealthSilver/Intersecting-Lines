@@ -1,5 +1,6 @@
 ---
 title: "Midnight on the Streets of Tokyo"
+author: "Silver"
 date: "2025-09-14"
 description: "A short story capturing the life and atmosphere of Tokyo at night."
 summary: "A narrative exploring the vibrant and quiet moments on Tokyo's streets after dark."

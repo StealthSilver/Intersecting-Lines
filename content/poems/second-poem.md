@@ -1,5 +1,6 @@
 ---
 title: "Memories of Olly"
+author: "Rya"
 date: "2025-09-21"
 description: "A short, heartfelt poem reflecting on the memory of a loved one."
 summary: "A lyrical recollection of happy times with Olly, tinged with loss."
@@ -29,6 +30,4 @@ Since her story is done.
 Now I walk alone,  
 With a broken heart,  
 And a broken phone.
-
-&#8212; Rya
 

@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { notFound } from "next/navigation";
+import ArticleEngagement from "@/components/ArticleEngagement";
+import AuthorByline from "@/components/AuthorByline";
+import { getAbsoluteSiteUrl } from "@/lib/site-url";
 
 export default async function StoryPage({
   params,
@@ -24,6 +27,9 @@ export default async function StoryPage({
   const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
 
+  const site = await getAbsoluteSiteUrl();
+  const shareUrl = `${site}/stories/${slug}`;
+
   return (
     <main className="relative min-h-screen text-[#21201f] dark:text-[#E0E0DA] pb-20 md:pb-0 transition-colors duration-300">
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 md:pr-20 pt-20 sm:pt-24 md:pt-28">
@@ -41,7 +47,7 @@ export default async function StoryPage({
         )}
 
         {data.tags && (
-          <div className="mb-8 sm:mb-12 flex justify-center gap-2 flex-wrap">
+          <div className="mb-4 sm:mb-6 flex justify-center gap-2 flex-wrap">
             {data.tags.map((tag: string, i: number) => (
               <span
                 key={i}
@@ -53,6 +59,8 @@ export default async function StoryPage({
           </div>
         )}
 
+        <ArticleEngagement shareUrl={shareUrl} title={data.title} />
+
         <div
           className="prose prose-sm sm:prose-base md:prose-lg max-w-none font-reading leading-relaxed text-left sm:text-justify
                      dark:prose-invert
@@ -63,6 +71,8 @@ export default async function StoryPage({
                      prose-strong:text-[#1F6F78] dark:prose-strong:text-[#4A9BA3] prose-headings:text-xl sm:prose-headings:text-2xl prose-a:text-[#1F6F78] dark:prose-a:text-[#4A9BA3] prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
+
+        <AuthorByline name={data.author as string | undefined} />
       </article>
     </main>
   );

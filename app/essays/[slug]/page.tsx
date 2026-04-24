@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { notFound } from "next/navigation";
+import ArticleEngagement from "@/components/ArticleEngagement";
+import AuthorByline from "@/components/AuthorByline";
+import { getAbsoluteSiteUrl } from "@/lib/site-url";
 
 export default async function EssayPage({
   params,
@@ -24,6 +27,9 @@ export default async function EssayPage({
   const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
 
+  const site = await getAbsoluteSiteUrl();
+  const shareUrl = `${site}/essays/${slug}`;
+
   return (
     <main className="relative min-h-screen text-[#21201f] dark:text-[#E0E0DA] pb-20 md:pb-0 transition-colors duration-300">
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 md:pr-20 pt-20 sm:pt-24 md:pt-28">
@@ -34,7 +40,7 @@ export default async function EssayPage({
           {data.title}
         </h1>
 
-        <div className="text-xs sm:text-sm text-zinc-600 dark:text-[#B0B0A0] mb-8 sm:mb-12 text-center font-light transition-colors duration-300">
+        <div className="text-xs sm:text-sm text-zinc-600 dark:text-[#B0B0A0] mb-4 sm:mb-6 text-center font-light transition-colors duration-300">
           <span>{data.date}</span>
           {data.tags && (
             <div className="mt-2 flex justify-center gap-2 flex-wrap">
@@ -50,10 +56,14 @@ export default async function EssayPage({
           )}
         </div>
 
+        <ArticleEngagement shareUrl={shareUrl} title={data.title} />
+
         <div
           className="prose prose-sm sm:prose-base md:prose-lg max-w-none font-reading leading-relaxed text-left sm:text-justify dark:prose-invert prose-headings:font-bold prose-headings:text-[#21201f] dark:prose-headings:text-[#E0E0DA] prose-p:mb-4 sm:prose-p:mb-6 prose-p:text-base sm:prose-p:text-lg prose-p:leading-7 sm:prose-p:leading-8 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-[#1F6F78] dark:prose-blockquote:border-[#4A9BA3] prose-blockquote:bg-[#1F6F78]/5 dark:prose-blockquote:bg-[#4A9BA3]/10 prose-blockquote:px-3 sm:prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-md prose-strong:text-[#1F6F78] dark:prose-strong:text-[#4A9BA3] prose-headings:text-xl sm:prose-headings:text-2xl prose-a:text-[#1F6F78] dark:prose-a:text-[#4A9BA3] prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
+
+        <AuthorByline name={data.author as string | undefined} />
       </article>
     </main>
   );

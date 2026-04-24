@@ -1,5 +1,6 @@
 ---
 title: "The Three-Body Problem"
+author: "Silver"
 date: "2025-09-14"
 description: "An essay on the three-body problem in physics and mathematics."
 summary: "An exploration of the three-body problem and its significance"
