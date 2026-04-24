@@ -1,10 +1,9 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import remarkBreaks from "remark-breaks";
-import html from "remark-html";
 import { notFound } from "next/navigation";
+import { prosePoemBodyClass } from "@/lib/article-body-classes";
+import { markdownToHtml } from "@/lib/render-markdown";
 import ArticleEngagement from "@/components/ArticleEngagement";
 import AuthorByline from "@/components/AuthorByline";
 import RecordVisit from "@/components/RecordVisit";
@@ -26,9 +25,7 @@ export default async function PoemPage({
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
-  const body = content.trim();
-  const processedContent = await remark().use(remarkBreaks).use(html).process(body);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await markdownToHtml(content, true);
 
   const site = await getAbsoluteSiteUrl();
   const shareUrl = `${site}/poems/${slug}`;
@@ -63,13 +60,7 @@ export default async function PoemPage({
         <ArticleEngagement shareUrl={shareUrl} title={data.title} />
 
         <div
-          className="poem-body prose prose-sm sm:prose-base md:prose-lg max-w-none font-reading leading-relaxed text-left
-                     dark:prose-invert
-                     prose-headings:font-bold prose-headings:text-[#21201f] dark:prose-headings:text-[#E0E0DA]
-                     prose-p:mb-6 sm:prose-p:mb-8 prose-p:text-base sm:prose-p:text-lg prose-p:leading-[1.85] sm:prose-p:leading-[1.9]
-                     prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-[#1F6F78] dark:prose-blockquote:border-[#4A9BA3]
-                     prose-blockquote:bg-[#1F6F78]/5 dark:prose-blockquote:bg-[#4A9BA3]/10 prose-blockquote:px-3 sm:prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-md
-                     prose-strong:text-[#1F6F78] dark:prose-strong:text-[#4A9BA3] prose-headings:text-xl sm:prose-headings:text-2xl prose-a:text-[#1F6F78] dark:prose-a:text-[#4A9BA3] prose-a:no-underline hover:prose-a:underline"
+          className={prosePoemBodyClass}
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 

@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
 import { notFound } from "next/navigation";
+import { proseNarrativeBodyClass } from "@/lib/article-body-classes";
+import { markdownToHtml } from "@/lib/render-markdown";
 import ArticleEngagement from "@/components/ArticleEngagement";
 import AuthorByline from "@/components/AuthorByline";
 import { getAbsoluteSiteUrl } from "@/lib/site-url";
@@ -24,8 +24,7 @@ export default async function BookPage({
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await markdownToHtml(content, false);
 
   const site = await getAbsoluteSiteUrl();
   const shareUrl = `${site}/books/${slug}`;
@@ -62,13 +61,7 @@ export default async function BookPage({
         <ArticleEngagement shareUrl={shareUrl} title={data.title} />
 
         <div
-          className="prose prose-sm sm:prose-base md:prose-lg max-w-none font-reading leading-relaxed text-left sm:text-justify
-                     dark:prose-invert
-                     prose-headings:font-bold prose-headings:text-[#21201f] dark:prose-headings:text-[#E0E0DA]
-                     prose-p:mb-4 sm:prose-p:mb-6 prose-p:text-base sm:prose-p:text-lg prose-p:leading-7 sm:prose-p:leading-8
-                     prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-[#1F6F78] dark:prose-blockquote:border-[#4A9BA3]
-                     prose-blockquote:bg-[#1F6F78]/5 dark:prose-blockquote:bg-[#4A9BA3]/10 prose-blockquote:px-3 sm:prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-md
-                     prose-strong:text-[#1F6F78] dark:prose-strong:text-[#4A9BA3] prose-headings:text-xl sm:prose-headings:text-2xl prose-a:text-[#1F6F78] dark:prose-a:text-[#4A9BA3] prose-a:no-underline hover:prose-a:underline"
+          className={proseNarrativeBodyClass}
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
