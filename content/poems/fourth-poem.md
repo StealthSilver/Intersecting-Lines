@@ -15,7 +15,7 @@ As he thought the other was of no good.
 One day during his evening walk ,
 He saw a fox which seemed to talk
 But when got closer ,
-Hello realised it was his mother .
+He realised it was his mother .
 
 Today was Monday and his school,
  He thought of making her mother fool
